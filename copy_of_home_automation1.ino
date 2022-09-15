@@ -3,15 +3,15 @@
 
 long readUltrasonicDistance(int triggerPin, int echoPin)
 {
-  pinMode(triggerPin, OUTPUT);  
+  pinMode(triggerPin, OUTPUT); 
   digitalWrite(triggerPin, LOW);
   delayMicroseconds(2);
-  
+
   digitalWrite(triggerPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(triggerPin, LOW);
   pinMode(echoPin, INPUT);
-  
+
   return pulseIn(echoPin, HIGH);
 }
 
@@ -24,7 +24,7 @@ void setup()
   pinMode(2, OUTPUT);
   servo_4.attach(4, 500, 2500);
   pinMode(3, INPUT);
-  pinMode(6, OUTPUT);
+  pinMode(5, OUTPUT);
 }
 
 void loop()
@@ -46,9 +46,9 @@ void loop()
   Serial.println("motion=");
   Serial.println(digitalRead(3));
   if (digitalRead(3) == 1) {
-    digitalWrite(6, HIGH);
+    digitalWrite(5, HIGH);
   } else {
-    digitalWrite(6, LOW);
+    digitalWrite(5, LOW);
   }
   delay(10); 
 }
